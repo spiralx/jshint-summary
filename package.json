@@ -1,0 +1,44 @@
+{
+  "name": "jshint-summary",
+  "version": "0.1.0",
+  "description": "JSHint reporter based on Stylish with configurable colours",
+  "main": "./index.js",
+  "scripts": {
+    "test": "gulp mocha"
+  },
+  "dependencies": {
+    "chalk": "^0.4.0",
+    "cli-table": "^0.3.0",
+    "gulp-bump": "^0.1.7"
+  },
+  "devDependencies": {
+    "gulp": "^3.6.0",
+    "gulp-jshint": "^1.5.1",
+    "gulp-mocha": "^0.4.1",
+    "should": "^3.2.0",
+    "gulp-util": "^2.2.14"
+  },
+  "author": "James Skinner <spiralx@gmail.com> (https://github.com/spiralx)",
+  "licenses": [
+    {
+      "type": "BSD",
+      "url": "https://github.com/spiralx/jshint-summary/blob/master/LICENSE"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/spiralx/jshint-summary/issues"
+  },
+  "homepage": "https://github.com/spiralx/jshint-summary",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/spiralx/jshint-summary.git"
+  },
+  "keywords": [
+    "gulpplugin",
+    "stylish",
+    "jshint",
+    "reporter",
+    "summary",
+    "configurable"
+  ]
+}
