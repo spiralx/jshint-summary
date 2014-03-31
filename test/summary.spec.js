@@ -1,8 +1,8 @@
 
 var gutil = require('gulp-util');
-var should = require('should');
-
+var expect = require('chai').expect;
 var jshint = require('gulp-jshint');
+
 var summary = require('../');
 
 
@@ -11,21 +11,21 @@ describe('gulp-jshint-summary', function() {
     it('should return a function', function(done) {
       var reporter = summary().reporter;
 
-      reporter.should.be.type('function');
-      reporter.options.should.be.type('object');
-      reporter.options.verbose.should.be.false;
+      expect(reporter).to.be.an('function');
+      expect(reporter.options).to.be.an('object');
+      expect(reporter.options.statistics).to.be.false;
 
       done();
     });
 
     it('should allow options to override defaults', function(done) {
       var reporter = summary({
-        verbose: true,
+        statistics: true,
         errCodeCol: 'magenta,bold'
       }).reporter;
 
-      reporter.options.verbose.should.be.true;
-      reporter.options.errCodeCol.should.eql('magenta,bold');
+      expect(reporter.options.statistics).to.be.true;
+      expect(reporter.options.errCodeCol).to.equal('magenta,bold');
 
       done();
     });
@@ -43,17 +43,18 @@ describe('gulp-jshint-summary', function() {
       var reportStream = jshint.reporter(reporter);
 
       reportStream.on('data', function(newFile) {
-        should.exist(newFile);
-        should.exist(newFile.path);
-        should.exist(newFile.relative);
-        should.exist(newFile.contents);
-        newFile.path.should.equal('./test/fixture/file.js');
-        newFile.relative.should.equal('file.js');
+        expect(newFile).to.exist;
+        expect(newFile.path).to.exist;
+        expect(newFile.relative).to.exist;
+        expect(newFile.contents).to.exist;
+
+        expect(newFile.path).to.equal('./test/fixture/file.js');
+        expect(newFile.relative).to.equal('file.js');
         ++a;
       });
 
       reportStream.once('end', function () {
-        a.should.equal(1);
+        expect(a).to.equal(1);
         done();
       });
 
