@@ -1,6 +1,6 @@
 {
   "name": "jshint-summary",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "JSHint reporter based on Stylish with configurable colours",
   "main": "./index.js",
   "scripts": {
@@ -34,11 +34,13 @@
     "url": "git://github.com/spiralx/jshint-summary.git"
   },
   "keywords": [
-    "gulpplugin",
+    "summary",
     "stylish",
     "jshint",
     "reporter",
-    "summary",
-    "configurable"
+    "lint",
+    "linting",
+    "configurable",
+    "colorful"
   ]
 }
