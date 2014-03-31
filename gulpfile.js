@@ -8,15 +8,10 @@ var bump = require('gulp-bump');
 var summary   = require('./');
 
 
+// e.g. gulp bump --type minor
 gulp.task('bump', function(){
-  gulp.src('./package.json')
-  .pipe(bump({ type: 'minor' }))
-  .pipe(gulp.dest('./'));
-});
-
-gulp.task('bumpfix', function(){
-  gulp.src('./package.json')
-  .pipe(bump({ type: 'patch' }))
+  return gulp.src('./package.json')
+  .pipe(bump({ type: gulp.env.type || 'patch' }))
   .pipe(gulp.dest('./'));
 });
 
@@ -25,9 +20,7 @@ gulp.task('lint', function () {
   return gulp.src('./lib/*.js')
     .pipe(jshint('.jshintrc'))
     .pipe(jshint.reporter(summary({
-      verbose: true,
-      codeCol: 'magenta,bold',
-      reasonCol: 'cyan,bold',
+      statistics: false,
       unicode: true
     })));
 });
@@ -36,7 +29,7 @@ gulp.task('lint', function () {
 gulp.task('mocha', function () {
   return gulp.src('./test/**/*.js')
     .pipe(mocha({
-      reporter: 'list'
+      reporter: 'html-cov'
     }));
 });
 
