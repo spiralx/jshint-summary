@@ -1,6 +1,6 @@
 # jshint-summary
 
-[![Build Status][travis-image]][travis-url] [![NPM version][npm-image]][npm-url] [![Dependency Status][daviddm-image]][daviddm-url]
+[![Build Status][travis-image]][travis-url] [![NPM version][npm-image]][npm-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Dev. Dependency Status][daviddm-dev-image]][daviddm-dev-url]
 
 
 
@@ -134,5 +134,7 @@ BSD © [James Skinner](http://github.com/spiralx)
 [npm-image]: https://badge.fury.io/js/jshint-summary.svg
 [daviddm-url]: https://david-dm.org/spiralx/jshint-summary
 [daviddm-image]: https://david-dm.org/spiralx/jshint-summary.svg?theme=shields.io
+[daviddm-dev-url]: https://david-dm.org/spiralx/jshint-summary#info=devDependencies
+[daviddm-dev-image]: https://david-dm.org/spiralx/jshint-summary/dev-status.svg?theme=shields.io
 [travis-url]: https://travis-ci.org/spiralx/jshint-summary
 [travis-image]: https://travis-ci.org/spiralx/jshint-summary.svg?branch=master
