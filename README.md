@@ -1,10 +1,9 @@
 # jshint-summary
 
-[![NPM status](https://nodei.co/npm/jshint-summary.png?compact=true)](https://npmjs.org/package/jshint-summary)
-
-![build-passing](http://b.repl.ca/v1/build-passing-brightgreen.png)&nbsp;
-![stability stable](http://b.repl.ca/v1/stability-stable-ff8080.png)
-
+![build-passing](http://b.repl.ca/v1/build-passing-5cc041.png)&nbsp;
+![stability stable](http://b.repl.ca/v1/stability-stable-5cc041.png)&nbsp;
+[![NPM version][npm-image]][npm-url]&nbsp;
+[![Dependency Status][daviddm-image]][daviddm-url]
 
 
 
@@ -133,3 +132,9 @@ Each of these represents the colour of part of the output - `fileCol` is the cur
 ## License
 
 BSD © [James Skinner](http://github.com/spiralx)
+
+
+[npm-url]: https://npmjs.org/package/jshint-summary
+[npm-image]: https://badge.fury.io/js/jshint-summary.svg
+[daviddm-url]: https://david-dm.org/gulpjs/gulp
+[daviddm-image]: https://david-dm.org/gulpjs/gulp.svg?theme=shields.io
