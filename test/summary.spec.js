@@ -6,7 +6,7 @@ var jshint = require('gulp-jshint');
 var summary = require('../');
 
 
-describe('gulp-jshint-summary', function() {
+describe('jshint-summary', function() {
   describe('getReporter()', function(){
     it('should return a function', function(done) {
       var reporter = summary().reporter;
