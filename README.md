@@ -87,7 +87,6 @@ The default settings are:
 var defaultOptions = {
   verbose: true,
   statistics: false,
-  unicode: process.platform  !== 'win32',
   width: 120,
   fileCol: 'yellow,bold',
   positionCol: 'white',
@@ -109,9 +108,9 @@ Default `true`, if `true` then show the JSHint error code for each issue.
 
 Defaults to `false`. If `true` then after reporting all issues found, the reporter will display various statistics JSHint generates - currently unused and implied global variables in each file.
 
-#### `unicode`
+#### `width`
 
-Defaults to `false` on Windows, `true` otherwise - you can override this if your console can display Unicode characters.
+Default `120`, this indicates the desired width of the output.
 
 #### `fileCol`, `positionCol`, `reasonCol`, `codeCol`, `errorsCol`, `okCol`, `labelCol`, `variableCol`
 
