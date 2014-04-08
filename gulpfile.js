@@ -29,7 +29,7 @@ gulp.task('lint', function () {
 gulp.task('mocha', function () {
   return gulp.src('./test/**/*.js')
     .pipe(mocha({
-      reporter: 'html-cov'
+      reporter: 'spec'
     }));
 });
 
