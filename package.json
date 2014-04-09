@@ -7,17 +7,17 @@
     "test": "gulp mocha"
   },
   "dependencies": {
-    "chalk": "^0.4.0",
-    "cli-table": "^0.3.0",
+    "chalk": ">=0.4.0",
+    "cli-table": ">=0.3.0",
     "wordwrap": "0.0.2"
   },
   "devDependencies": {
-    "gulp": "^3.6.0",
-    "gulp-jshint": "^1.5.1",
-    "gulp-mocha": "^0.4.1",
-    "gulp-util": "^2.2.14",
-    "gulp-bump": "^0.1.7",
-    "chai": "^1.9.1",
+    "gulp": ">=3.6.0",
+    "gulp-jshint": ">=1.5.1",
+    "gulp-mocha": ">=0.4.1",
+    "gulp-util": ">=2.2.14",
+    "gulp-bump": ">=0.1.7",
+    "chai": ">=1.9.1",
     "yargs": "~1.2.1"
   },
   "author": "James Skinner <spiralx@gmail.com> (https://github.com/spiralx)",
