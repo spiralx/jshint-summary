@@ -1,6 +1,6 @@
 {
   "name": "jshint-summary",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "JSHint reporter based on Stylish with configurable colours",
   "main": "./index.js",
   "scripts": {
