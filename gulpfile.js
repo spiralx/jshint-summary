@@ -1,9 +1,7 @@
 'use strict';
 
 var gulp   = require('gulp');
-var jshint = require('gulp-jshint');
-var mocha  = require('gulp-mocha');
-var bump = require('gulp-bump');
+var plugins = require('gulp-load-plugins')();
 
 var args   = require('yargs').argv;
 var summary   = require('./');
@@ -14,7 +12,7 @@ gulp.task('bump', function() {
   var bumpType = args.t || args.type || 'patch';
 
   return gulp.src('./package.json')
-  .pipe(bump({ type: bumpType }))
+  .pipe(plugins.bump({ type: bumpType }))
   .pipe(gulp.dest('./'));
 });
 
@@ -22,8 +20,8 @@ gulp.task('bump', function() {
 // Lints the file test/fixtures/sloppy.js and uses this to report on it
 gulp.task('demo', function () {
   return gulp.src('./test/fixtures/*.js')
-    .pipe(jshint('.jshintrc'))
-    .pipe(jshint.reporter(summary({
+    .pipe(plugins.jshint('.jshintrc'))
+    .pipe(plugins.jshint.reporter(summary({
       statistics: true
     })));
 });
@@ -31,21 +29,21 @@ gulp.task('demo', function () {
 
 gulp.task('lint', function () {
   return gulp.src('./lib/*.js')
-    .pipe(jshint('.jshintrc'))
-    .pipe(jshint.reporter(summary({
-      statistics: false,
-      unicode: true
+    .pipe(plugins.jshint('.jshintrc'))
+    .pipe(plugins.jshint.reporter(summary({
+      statistics: false
     })));
 });
 
 
 gulp.task('mocha', function () {
   return gulp.src('./test/**/*.js')
-    .pipe(mocha({
+    .pipe(plugins.mocha({
       useColors: !!args.color,
       reporter: 'spec'
     }));
 });
+
 
 gulp.task('test', ['lint', 'mocha']);
 
