@@ -15,10 +15,10 @@
     "gulp": "^3.6.0",
     "gulp-jshint": "^1.5.1",
     "gulp-mocha": "^0.4.1",
-    "should": "^3.2.0",
     "gulp-util": "^2.2.14",
     "gulp-bump": "^0.1.7",
-    "chai": "^1.9.1"
+    "chai": "^1.9.1",
+    "yargs": "~1.2.1"
   },
   "author": "James Skinner <spiralx@gmail.com> (https://github.com/spiralx)",
   "licenses": [

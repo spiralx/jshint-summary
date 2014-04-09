@@ -1,13 +1,14 @@
 
 var gutil = require('gulp-util');
-var expect = require('chai').expect;
 var jshint = require('gulp-jshint');
+var expect = require('chai').expect;
+var fs = require('fs');
 
 var summary = require('../');
 
 
 describe('jshint-summary', function() {
-  describe('getReporter()', function(){
+  describe('getReporter()', function() {
     it('should return a function', function(done) {
       var reporter = summary().reporter;
 
@@ -33,11 +34,11 @@ describe('jshint-summary', function() {
     it('file should pass through', function(done) {
       var reporter = summary(), a = 0;
 
-      var fakeFile = new gutil.File({
-        path: './test/fixture/file.js',
-        cwd: './test/',
-        base: './test/fixture/',
-        contents: new Buffer('doe =')
+      var testFile = new gutil.File({
+        path: './test/fixtures/sloppy.js',
+        cwd: './test/fixtures/',
+        base: './test/fixtures/',
+        contents: fs.readFileSync('./test/fixtures/sloppy.js')
       });
 
       var reportStream = jshint.reporter(reporter);
@@ -48,8 +49,8 @@ describe('jshint-summary', function() {
         expect(newFile.relative).to.exist;
         expect(newFile.contents).to.exist;
 
-        expect(newFile.path).to.equal('./test/fixture/file.js');
-        expect(newFile.relative).to.equal('file.js');
+        expect(newFile.path).to.equal('./test/fixtures/sloppy.js');
+        expect(newFile.relative).to.equal('sloppy.js');
         ++a;
       });
 
@@ -58,7 +59,7 @@ describe('jshint-summary', function() {
         done();
       });
 
-      reportStream.write(fakeFile);
+      reportStream.write(testFile);
       reportStream.end();
     });
   });

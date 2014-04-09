@@ -88,6 +88,7 @@ var defaultOptions = {
   verbose: true,
   statistics: false,
   width: 120,
+  wordWrap: false,
   fileCol: 'yellow,bold',
   positionCol: 'white',
   reasonCol: 'cyan,bold',
@@ -95,7 +96,7 @@ var defaultOptions = {
   errorsCol: 'red,bold',
   okCol: 'green',
   labelCol: 'green',
-  variableCol: 'blue,bold'
+  variableCol: 'white,bold'
 };
 ```
 
@@ -108,9 +109,9 @@ Default `true`, if `true` then show the JSHint error code for each issue.
 
 Defaults to `false`. If `true` then after reporting all issues found, the reporter will display various statistics JSHint generates - currently unused and implied global variables in each file.
 
-#### `width`
+#### `wordWrap`, `width`
 
-Default `120`, this indicates the desired width of the output.
+Allows text to be wrapped at a particular width, the default values are `false` and `120` at the moment, as the implementation needs improving.
 
 #### `fileCol`, `positionCol`, `reasonCol`, `codeCol`, `errorsCol`, `okCol`, `labelCol`, `variableCol`
 
