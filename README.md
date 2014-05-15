@@ -68,7 +68,7 @@ gulp.task('default', function () {
 grunt.initConfig({
   jshint: {
     options: {
-      reporter: require('jshint-summary')
+      reporter: 'jshint-summary'
     },
     target: ['file.js']
   }
