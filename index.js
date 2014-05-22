@@ -1,1 +1,1 @@
-module.exports = require('./lib/summary.js');
+module.exports = require('path').join(__dirname, 'lib/summary');

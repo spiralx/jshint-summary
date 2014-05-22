@@ -14,4 +14,4 @@ if (frames.length == 0) alert('OMG!')
 
 AFunc = function(s) {
     console.log("bad indenting...")
-}
+}()
