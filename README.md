@@ -45,6 +45,9 @@ gulp.task('jshint', function () {
 });
 ```
 
+If you are using a version of `gulp-jshint` before __1.5.5__ your settings won't be passed
+to the reporter, which will use just the default settings.
+
 
 #### [grunt-contrib-jshint](https://github.com/gruntjs/grunt-contrib-jshint)
 
@@ -58,6 +61,9 @@ grunt.initConfig({
   }
 });
 ```
+
+If you are using a version of `grunt-contrib-jshint` before __0.9.0__ your settings won't be passed
+to the reporter, which will use just the default settings.
 
 
 ## Options
