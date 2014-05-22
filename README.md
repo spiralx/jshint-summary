@@ -28,7 +28,7 @@ a build system using either [Grunt](http://gruntjs.com/) or [Gulp](http://gulpjs
 #### JSHint on the command-line
 
 ```sh
-jshint --reporter node_modules/jshint-summary/index.js file.js
+jshint --reporter node_modules\jshint-summary\lib\summary file.js
 ```
 
 
