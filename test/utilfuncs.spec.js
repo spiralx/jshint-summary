@@ -9,6 +9,28 @@ var utils = require('../lib/utilfuncs');
 
 describe('utilfuncs.js', function() {
 
+  describe('underline()', function() {
+
+    it('should accept all values', function(done) {
+      expect(utils.underline('foo')).to.equal('foo\n---');
+      expect(utils.underline(4)).to.equal('4\n-');
+      expect(utils.underline(null)).to.equal('null\n----');
+      expect(utils.underline()).to.equal('undefined\n---------');
+      done();
+    });
+
+    it('should support custom underlines', function(done) {
+      expect(utils.underline('foo')).to.equal('foo\n---');
+      expect(utils.underline('foo', '=')).to.equal('foo\n===');
+      expect(utils.underline(4)).to.equal('4\n-');
+      expect(utils.underline(4, '%')).to.equal('4\n%');
+      done();
+    });
+
+  });
+
+  // --------------------------------------------------------------------------
+
   describe('extend()', function() {
 
     it('should work without params', function(done) {

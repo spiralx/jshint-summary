@@ -70,7 +70,7 @@ gulp.task('mocha', function() {
 // Run instrumented unit tests and generate coverage reports
 
 gulp.task('cover', function(cb) {
-  gulp.src(config.test)
+  gulp.src(config.src)
     .pipe($.istanbul())
     .on('finish', function() {
       gulp.src(config.test)
