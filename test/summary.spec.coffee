@@ -15,7 +15,7 @@ describe "summary.coffee", ->
 
     expect exported
       .to.be.an "object"
-      .and.to.have.keys "reporter"
+      .and.to.include.key "reporter"
 
     expect exported.reporter
       .to.be.a "function"

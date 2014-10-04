@@ -35,8 +35,8 @@ describe 'gulp-jshint', ->
 
   it "should get the reporter function", ->
     reporter = jshint.reporter modulePath
-    EventEmitter = require 'events'
-    (expect reporter).to.be.an.instanceof EventEmitter
+    expect reporter
+      .to.be.a.function
     return
 
 
