@@ -9,6 +9,8 @@ A customisable reporter for that was inspired by [jshint-stylish](https://npmjs.
 but designed to be more readable by default on all platforms and provide configuration options so that users
 can customise the report for themselves. It can also report a summary of the code statistics that JSHint generates.
 
+![jshint-summary-custom](https://cloud.githubusercontent.com/assets/2296633/3056815/d7d34ae2-e1ce-11e3-8ae1-aff8a9999a6e.png)
+
 
 ## Install
 
