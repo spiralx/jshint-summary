@@ -1,21 +1,38 @@
 'use strict';
 
 var gulp   = require('gulp');
-var plugins = require('gulp-load-plugins')();
-var args   = require('yargs').argv;
+var $ = require('gulp-load-plugins')();
 
 require('coffee-script/register');
 
 
 // ----------------------------------------------------------------------------
 
+var config = require('./build.config');
+
+var log = function(s) {
+  $.util.log($.util.colors.red.bold(s));
+};
+
+
+// ----------------------------------------------------------------------------
+
 // e.g. gulp bump --type minor
 gulp.task('bump', function() {
-  var bumpType = args.t || args.type || 'patch';
+  var bumpType = require('yargs').argv.type || 'patch';
 
-  return gulp.src('./package.json')
-  .pipe(plugins.bump({ type: bumpType }))
-  .pipe(gulp.dest('./'));
+  gulp.src('./package.json')
+    .pipe($.bump({ type: bumpType }))
+    .pipe(gulp.dest('./'));
+});
+
+
+// ----------------------------------------------------------------------------
+// Clean old directories
+
+gulp.task('clean', function() {
+  return gulp.src(config.istanbul.dir, { read: false })
+    .pipe($.clean());
 });
 
 
@@ -23,56 +40,53 @@ gulp.task('bump', function() {
 // Lints the files in test/fixtures/ using this as the reporter
 
 gulp.task('demo', function() {
-  return gulp.src(['test/fixtures/clean.js', 'test/fixtures/sloppy.js'])
-    .pipe(plugins.jshint('.jshintrc'))
-    .pipe(plugins.jshint.reporter('./', {
-      statistics: true,
-      fileCol: 'yellow,bold'
-    }));
+  return gulp.src(config.fixtures)
+    .pipe($.jshint('.jshintrc'))
+    .pipe($.jshint.reporter('./', config.jshint.reporter));
 });
 
 
 // ----------------------------------------------------------------------------
-// Lint and run unit tests
+// Lint using JSHint
 
 gulp.task('lint', function() {
-  return gulp.src('lib/*.js')
-    .pipe(plugins.jshint('.jshintrc'))
-    .pipe(plugins.jshint.reporter('./', {
-      statistics: false
-    }));
+  return gulp.src(config.src)
+    .pipe($.jshint('.jshintrc'))
+    .pipe($.jshint.reporter('./', config.jshint.reporter));
 });
 
+
+// ----------------------------------------------------------------------------
+// Run unit tests
 
 gulp.task('mocha', function() {
-  return gulp.src(['test/utilfuncs.spec.js', 'test/summary.spec.coffee', 'test/gulp.spec.coffee'])
-    .pipe(plugins.mocha({
-      useColors: !!args.color,
-      reporter: 'spec'
-    }))
+  return gulp.src(config.test, { read: false })
+    .pipe($.mocha(config.mocha))
+    .on('error', log);
 });
 
-// gulp.task('mocha', function(cb) {
-//   gulp.src(['lib/**/*.js', 'main.js'])
-//     .pipe(plugins.istanbul())
-//     .on('end', function() {
-//       gulp.src('./test/**/*.js')
-//       .pipe(plugins.mocha({
-//         useColors: !!args.color,
-//         reporter: 'spec'
-//       }))
-//       .pipe(plugins.istanbul.writeReports('./test/coverage'))
-//       .on('end', cb);
-//     });
-// });
+
+// ----------------------------------------------------------------------------
+// Run instrumented unit tests and generate coverage reports
+
+gulp.task('cover', function(cb) {
+  gulp.src(config.test)
+    .pipe($.istanbul())
+    .on('finish', function() {
+      gulp.src(config.test)
+        .pipe($.mocha())
+        .pipe($.istanbul.writeReports(config.istanbul))
+        .on('end', cb);
+    });
+});
+
+
+// ----------------------------------------------------------------------------
 
 gulp.task('test', ['lint', 'mocha']);
 
-
-// ----------------------------------------------------------------------------
-
 gulp.task('watch', ['test'], function() {
-  gulp.watch(['lib/*.js', 'test/*.js'], ['test']);
+  gulp.watch([ config.src, config.test ], ['test']);
 });
 
 gulp.task('default', ['watch']);
