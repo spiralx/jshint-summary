@@ -8,13 +8,13 @@ module.exports = function(grunt) {
     // Lints all .js files under src/ using jshint-summary as the reporter
     jshint: {
       options: {
-        reporter: require('jshint-summary'),
+        reporter: require('../'),
         jshintrc: '.jshintrc',
         statistics: true,
         fileCol: 'yellow,bold'
       },
       target: [
-        'app/*.js'
+        'test/fixtures/*.js'
       ]
     }
 

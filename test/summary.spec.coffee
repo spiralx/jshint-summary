@@ -8,7 +8,7 @@ summaryPath = "../lib/summary"
 
 # ----------------------------------------------------------------------------
 
-describe "summary.coffee", ->
+describe "summary.js", ->
 
   it "should export an object with the reporter function", ->
     exported = require summaryPath

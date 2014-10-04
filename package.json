@@ -1,34 +1,34 @@
 {
   "name": "jshint-summary",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "JSHint reporter based on Stylish with configurable colours",
   "main": "./index.js",
   "scripts": {
     "pretest": "npm install",
     "test": "gulp mocha",
-    "run-grunt": "grunt -b . --gruntfile test/fixtures/Gruntfile.js"
+    "run-grunt": "grunt -b . --gruntfile examples/Gruntfile.js"
   },
   "dependencies": {
-    "chalk": "^0.4.0",
+    "chalk": "^0.5.1",
     "cli-table": "^0.3.0",
     "wordwrap": "^0.0.2",
     "coffee-script": "^1.7.1"
   },
   "devDependencies": {
     "chai": "^1.9.1",
+    "chai-fs": "^0.1.0",
     "coveralls": "^2.10.0",
-    "gulp": "^3.6.0",
-    "gulp-bump": "^0.1.7",
-    "gulp-istanbul": "^0.1.1",
-    "gulp-jshint": "^1.6.1",
-    "gulp-load-plugins": "^0.5.0",
-    "gulp-mocha": "^0.4.1",
-    "gulp-util": "^2.2.14",
-    "istanbul": "^0.2.7",
-    "yargs": "^1.2.1",
-    "chai-fs": "0.0.3",
     "grunt": "^0.4.5",
-    "grunt-contrib-jshint": "^0.10.0"
+    "grunt-contrib-jshint": "^0.10.0",
+    "gulp": "^3.8.8",
+    "gulp-bump": "^0.1.7",
+    "gulp-clean": "^0.3.1",
+    "gulp-istanbul": "^0.3.1",
+    "gulp-jshint": "^1.6.1",
+    "gulp-load-plugins": "^0.7.0",
+    "gulp-mocha": "^1.1.0",
+    "gulp-util": "^3.0.1",
+    "yargs": "^1.2.1"
   },
   "author": "James Skinner <spiralx@gmail.com> (https://github.com/spiralx)",
   "licenses": [
